@@ -1,0 +1,67 @@
+<html>
+<head>
+<Script type ="text/javascript">
+function onsubmitt()
+{
+	try
+	{
+		var name=document.getElementById("name").value;
+		var pwd=document.getElementById("pwd").value;
+		if(name.length<4)
+		{
+			alert("name required");
+			document.getElementById("name").focus();
+			return false;
+		}
+		for(var loop=0;loop<name.length;loop++)
+		{
+			var ch=name.charAt(loop);
+			if((ch>='a'&&ch<='z')||(ch>='A'&&ch<='Z')||ch==' ')
+			{
+			}
+			else
+			{
+				alert("Invalid Loginname");
+				document.getElementById("name").focus();
+				return false;
+			}
+		}
+		if(pwd.length<2)
+		{
+			alert("password is required");
+			document.getElementById("pwd").focus();
+			return false;
+		}
+		var c=confirm(" Are you sure you want to conitnue");
+		if(c==false)
+		return false;
+		else
+		return true;
+	}
+	catch(e)
+	{
+		alert(e);
+		console.log(e);
+		return false;
+	}
+}
+</script>
+</head>
+<body>
+<br><br><br><br><br><br>
+<form method="get" action="login" onsubmit=" return onsubmitt()">
+<table border="1" align="center">
+<tr><td><b>student_name:</b></td>
+<td><input type="text" name="name" id="name"></td>
+</tr>
+<tr>
+<td><b>password:</b></td>
+<td><input type="password" name="pwd" id="pwd"></td>
+</tr>
+<tr> 
+<td><input type="submit" value="submit">
+</td></tr>
+<a href="admin.html"><center>goto admin login</center></a>
+</table></form>
+</body>
+</html>
